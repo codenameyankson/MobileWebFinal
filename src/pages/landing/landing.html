@@ -1,0 +1,52 @@
+
+<ion-header>
+
+ 
+
+</ion-header>
+
+
+<ion-content padding>
+<div id="logo">
+<ion-row>
+    <ion-col></ion-col>
+    <ion-col>
+  <h1>Snitches</h1>
+</ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+</div>
+<br>
+<div id="infoArea">
+<ion-list>
+
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input type="text" #username [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password" #password [(ngModel)]="user.password"></ion-input>
+  </ion-item>
+
+</ion-list>
+<br>
+<ion-row>
+    <ion-col></ion-col>
+    <ion-col>
+<div align=center id="btn_logIn">
+  <button ion-button color="light" round (click)="login()">Log In</button>
+  <button ion-button clear (click)="register()">Register</button>
+
+    </div>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+
+</div>
+
+
+
+
+</ion-content>

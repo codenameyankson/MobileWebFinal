@@ -1,0 +1,50 @@
+
+<ion-header>
+
+  
+
+</ion-header>
+
+
+
+<ion-content padding>
+
+<div id="infoArea">
+  
+  <h1 id="head" align=center >We Are Glad To Have You !</h1>
+
+<ion-list>
+
+  <ion-item>
+    <ion-label floating>Name</ion-label>
+    <ion-input type="text" #name [(ngModel)]="user.name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Phone Number</ion-label>
+    <ion-input type="text" #phoneNumber [(ngModel)]="user.phoneNumber"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Age</ion-label>
+    <ion-input type="number" #age [(ngModel)]="user.age"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input type="email" #email [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+
+   <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password" #password [(ngModel)]="user.password"></ion-input>
+  </ion-item>
+
+</ion-list>
+<div align=center id="btn_logIn">
+  <button ion-button  round (click)="registerUser(user)">Register</button>
+  <button ion-button clear (click)="cancel()">Cancel Register</button>
+  
+</div>
+</div>
+</ion-content>

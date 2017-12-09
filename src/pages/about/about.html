@@ -1,11 +1,70 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Snitch It
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-row>
+    <ion-col></ion-col>
+      <ion-col>
+        <div id="camera">
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col><button (click)="takePicture()" ion-button icon-left><ion-icon name="camera"></ion-icon>Take The Shot!!</button></ion-col> 
+            <ion-col></ion-col>
+        </ion-row>
+        </div>
+      </ion-col>
+      <ion-col></ion-col>
+  </ion-row>
+<br>
+<br>
+<br>
+<br>
+
+<ion-row>
+  <ion-col>
+    <div id="infobox">
+    <ion-list>
+      <ion-item>
+        <ion-label>Authority</ion-label>
+        <ion-select [(ngModel)]="report.authority">
+          <ion-option value="gp">Ghana Police</ion-option>
+          <ion-option value="grsc">Ghana Road Safety Commission</ion-option>
+          <ion-option value="ajc">Ashesi Judicial Council</ion-option>
+        </ion-select>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label floating>Offense Description</ion-label>
+        <ion-textarea type="text" [(ngModel)]="report.description" ></ion-textarea>
+      </ion-item>
+
+      
+        <button (click) = "loadMap()" ion-button clear icon-left><ion-icon  name="location"></ion-icon>Locate</button>
+      
+      <ion-item>
+        <ion-label *ngIf="checkStatus()" >Coordinate: {{report.longitude}},{{report.latitude}} </ion-label>
+      </ion-item>
+    </ion-list>
+    </div>
+  </ion-col>
+
+</ion-row>
+<br>
+<ion-row>
+    <ion-col></ion-col>
+    <ion-col>
+<div align=center id="btnAdd">
+     
+    <button ion-button icon-left><ion-icon name="send"></ion-icon>Send</button>
+     <button (click) = "cancel()" ion-button clear icon-left><ion-icon name="Cancel"></ion-icon>Cancel</button>
+    </div>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
 
 </ion-content>

@@ -4,37 +4,68 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { LandingPage } from '../pages/landing/landing';
+import { RegisterPage } from '../pages/register/register';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Camera } from '@ionic-native/camera';
+import { Geolocation } from '@ionic-native/geolocation';
+import {GoogleMaps,GoogleMap,GoogleMapsEvent,GoogleMapOptions,CameraPosition,MarkerOptions,Marker} from '@ionic-native/google-maps';
+import { Component } from "@angular/core/";
+
+
+
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDXY9oNoTNEFfb49T8Hp9S_iSYza3kHkMg",
+    authDomain: "snitchs-13084.firebaseapp.com",
+    databaseURL: "https://snitches-13084.firebaseio.com",
+    projectId: "snitches-13084",
+    storageBucket: "snitches-13084.appspot.com",
+    messagingSenderId: "370771127442"
+  };
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
-    ContactPage,
+    LandingPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    RegisterPage
+
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    AngularFireModule.initializeApp(firebaseConfig),
+    IonicModule.forRoot(MyApp),
+    AngularFireAuthModule
+   
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
+    LandingPage,
     HomePage,
+    RegisterPage,
     TabsPage
   ],
   providers: [
     StatusBar,
+    Camera,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Geolocation,
+    //Component,
+    GoogleMaps,
+    
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    //FirebaseServiceProvider
   ]
 })
 export class AppModule {}
