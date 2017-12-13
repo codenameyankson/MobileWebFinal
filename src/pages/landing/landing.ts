@@ -5,6 +5,7 @@ import { User } from '../../modules/user';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {ToastController} from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+import {DashboardPage} from '../dashboard/dashboard'
 
 @IonicPage()
 @Component({
@@ -24,11 +25,29 @@ export class LandingPage {
       try{
       const result = await this.afAuth.auth.signInWithEmailAndPassword(this.user.email,this.user.password);
       console.log(result);
-      this.toast.create({
-        message:"Account Successfully Created",
+
+      if (this.user.email == "admin@admin.com"){
+        
+         this.toast.create({
+        message:"Welcome Adninistrator",
         duration: 3000
       }).present();
+      this.navCtrl.setRoot(DashboardPage);
+
+        
+      } else{
+
+        this.toast.create({
+        message:"Login Successful",
+        duration: 3000
+      }).present();
+
       this.navCtrl.setRoot(TabsPage);
+
+      }
+
+     
+      
   }
   catch(e){
     console.log(e);

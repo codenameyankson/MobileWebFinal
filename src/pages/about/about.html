@@ -32,9 +32,9 @@
       <ion-item>
         <ion-label>Authority</ion-label>
         <ion-select [(ngModel)]="report.authority">
-          <ion-option value="gp">Ghana Police</ion-option>
-          <ion-option value="grsc">Ghana Road Safety Commission</ion-option>
-          <ion-option value="ajc">Ashesi Judicial Council</ion-option>
+          <ion-option value="Ghana Police">Ghana Police</ion-option>
+          <ion-option value="Ghana Road Safety Commission">Ghana Road Safety Commission</ion-option>
+          <ion-option value="Ashesi Judicial Council">Ashesi Judicial Council</ion-option>
         </ion-select>
       </ion-item>
     
@@ -60,7 +60,7 @@
     <ion-col>
 <div align=center id="btnAdd">
      
-    <button ion-button icon-left><ion-icon name="send"></ion-icon>Send</button>
+    <button (click) = "send()" ion-button icon-left><ion-icon name="send"></ion-icon>Send</button>
      <button (click) = "cancel()" ion-button clear icon-left><ion-icon name="Cancel"></ion-icon>Cancel</button>
     </div>
     </ion-col>

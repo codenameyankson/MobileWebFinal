@@ -17,9 +17,13 @@ import {GoogleMaps,GoogleMap,GoogleMapsEvent,GoogleMapOptions,CameraPosition,Mar
 import { Component } from "@angular/core/";
 
 
-
+import { IonicStorageModule } from '@ionic/storage';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireAuthModule} from 'angularfire2/auth';
+import {AngularFireDatabaseModule} from 'angularfire2/database-deprecated';
+import {HttpModule} from "@angular/http";
+import {FirebaseServiceProvider} from "../providers/firebase-service/firebase-service";
+import {DashboardPage} from '../pages/dashboard/dashboard'
 
 const firebaseConfig = {
     apiKey: "AIzaSyDXY9oNoTNEFfb49T8Hp9S_iSYza3kHkMg",
@@ -37,14 +41,18 @@ const firebaseConfig = {
     LandingPage,
     HomePage,
     TabsPage,
-    RegisterPage
+    RegisterPage,
+    DashboardPage
 
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp),
-    AngularFireAuthModule
+    IonicStorageModule.forRoot(),
+    AngularFireAuthModule,
+    HttpModule,
+    AngularFireDatabaseModule
    
   ],
   bootstrap: [IonicApp],
@@ -54,18 +62,19 @@ const firebaseConfig = {
     LandingPage,
     HomePage,
     RegisterPage,
-    TabsPage
+    TabsPage,
+    DashboardPage
   ],
   providers: [
     StatusBar,
+    
     Camera,
     SplashScreen,
     Geolocation,
     //Component,
     GoogleMaps,
-    
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    //FirebaseServiceProvider
+    FirebaseServiceProvider,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

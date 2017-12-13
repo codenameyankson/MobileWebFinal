@@ -1,7 +1,7 @@
 export interface User{
 
 name:string;
-phoneNnumber : string;
+phoneNumber : string;
 age: string;
 email: string;
 password: string;

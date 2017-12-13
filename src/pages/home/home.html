@@ -1,67 +1,102 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Snitch Portfolio</ion-title>
+    <ion-row>
+      <ion-col>
+          <ion-title>Global Snitch Porfolio</ion-title> 
+    </ion-col>
+    <ion-col></ion-col>
+    <ion-col>
+     
+    </ion-col>
+    </ion-row>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   
-  <!--<div id="slider">
-  <ion-slides pager>
-    <ion-slide style="background-color: green">
-      <h2>Slide 1</h2>
-    </ion-slide>
-
-    <ion-slide style="background-color: blue">
-      <h2>Slide 2</h2>
-    </ion-slide>
-
-    <ion-slide style="background-color: red">
-      <h2>Slide 3</h2>
-    </ion-slide>
-
-  </ion-slides>
-</div> -->
+<ion-list>
+  
+<ion-item>
 <ion-card>
-  <img src="img/nin-live.png"/>
-  <ion-card-content>
-    <ion-card-title>
-      Caught Stealing
-      </ion-card-title>
-    <p>
-      This perpetuator was caught taking food from Fiifi's without paying.
+        <p><img src="{{imgsource1}}"> </p>
+        <h2>Reported To: Ashesi Judicial Councel  </h2>
+         <br>
+        <p>
+        Description:  Seen wasting time     
+        </p>
+        <br>
+      <p>
+      Coordinate Location : 5.759544,-0.2193949  
+      <br>
     </p>
-  </ion-card-content>
+     <ion-badge  item-end>Resolved</ion-badge>
 </ion-card>
+
+</ion-item>
+
+<ion-item>
 <ion-card>
-  <img src="img/nin-live.png"/>
-  <ion-card-content>
-    <ion-card-title>
-      Caught Stealing
-      </ion-card-title>
-    <p>
-      This perpetuator was caught taking food from Fiifi's without paying.
+        <p><img src="{{imgsource2}}"> </p>
+        <h2>Reported To: Ashesi Judicial Councel  </h2>
+         <br>
+        <p>
+        Description: Copying During a quiz   
+        </p>
+        <br>
+      <p>
+      Coordinate Location : 3.759544,-0.2193949  
+      <br>
     </p>
-  </ion-card-content>
+     <ion-badge  item-end>Unresolved</ion-badge>
 </ion-card>
+
+</ion-item>
+
+<ion-item>
 <ion-card>
-  <img src="img/nin-live.png"/>
-  <ion-card-content>
-    <ion-card-title>
-      Caught Stealing
-      </ion-card-title>
-    <p>
-      This perpetuator was caught taking food from Fiifi's without paying.
+        <p><img src="{{imgsource3}}"> </p>
+        <h2>Reported To: Ashesi Judicial Councel  </h2>
+         <br>
+        <p>
+        Description:  Seen wasting time  
+        </p>
+        <br>
+      <p>
+      Coordinate Location : 5.759544,-0.2193949  
+      <br>
     </p>
-  </ion-card-content>
+     <ion-badge red item-end>Resolved</ion-badge>
 </ion-card>
-<br>
+
+</ion-item>
+  <ion-item *ngFor="let report of reports | async">
+      <ion-card>
+        <p><img src="{{imgsource}}"> </p>
+        <h2>Reported To:{{report.authority}} </h2>  
+         <br>
+        <p>
+        Description: {{report.description}}  
+        
+        </p>
+        <br>
+      <p>
+      Coordinate Location : {{report.longitude}} ,   {{report.latitude}} 
+      <br>
+    </p>
+    <ion-badge  item-end>Unresolved</ion-badge>
+</ion-card>
+  </ion-item>
+
+
+
+</ion-list>
+
+
+
 <ion-row>
     <ion-col></ion-col>
     <ion-col>
-<!--<div align=center id="btnAdd">
-    <button ion-button color="light" round>Snitch</button>
-</div>-->
+
     </ion-col>
     <ion-col></ion-col>
   </ion-row>
